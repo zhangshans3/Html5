@@ -1,0 +1,489 @@
+1. HTML5的新标签
+结构性元素：<header>、<footer>、<nav>、<article>…
+	<header>定义头部，通常包含导航和一些引导信息
+	<footer>定义脚部
+	<nav>导航
+	<article>正文
+	<aside>边栏
+	<section>文章中的段
+功能性元素：<video>视频、<audio>音频
+	若需要添加控制条则设置controls=‘controls’
+	若想链接不同的音频文件，可以用source元素
+	<audio controls="controls">
+		<source src="" type=""></source>
+		<source src="" type=""></source>
+	</audio>
+
+2. 新标签的使用方法
+音/视频格式兼容性解决方案
+音/视频操作相关API
+
+
+第3章 – 表单
+1. 新增input输入类型
+number、email、url、tel、range、date、color、date…
+数值输入文本框<input type="number" name='' min="1" max="100" step="2" />
+邮箱输入文本框<input type="email" name='' placeholder="请输入邮箱"/> placeholder属性为提示信息
+url输入文本框<input type="url" placeholder="请输入网址" />
+电话号码输入文本框<input type="tel" placeholder="输入电话" name="p"/>
+滑动条输入文本框<input type="range" min="0" max="50" step="5" name="rdemo" value="0" />
+日期时间输入文本框<input type="date" name="datedemo" />
+颜色选择文本框<input type="color"/>
+搜索功能文本框: <input type="search" autocomplete="on" name="gongfu" list="names" results />
+				<datalist id="names">
+				<option>亢龙有悔</option>
+				<option>飞龙在天</option>
+				</datalist>			
+				
+2. 新增元素属性
+formaction、formmethod、autofocus、placeholder、multiple
+	formaction属性实现将表单提交到不同的页面，可以使用
+	formmethod属性来对每个表单元素分别指定不同的提交方法。
+    autofocus属性此属性可以设置当前页面中input标签加载完毕后获得焦点。
+    placeholder: 提示信息属性。当文本框处于未输入状态且未获取光标焦点时，模糊显示提示文字。
+    multiple：用于文件上传控件，设置此属性后，允许上传多个文件
+
+
+第4章 – JavaScript高级应用
+1. 深入理解对象
+   new关键字创建对象：var obj=new Object();
+2. 深入理解属性
+	属性是由键值对组成的，即属性的名字和属性的值。
+	属性的名：字符串
+	属性值可以为任意的JavaScript数据类型(包括函数、对象)
+	属性的读取:. 运算符、[ ] 运算符
+	for in语句遍历对象的全部属性
+	for（attr in obj）{
+		console.log(attr); //访问属性
+		console.log(obj[attr]); //访问属性值
+	}
+3. 函数
+未完成
+
+第5章 – 地理位置定位
+1. 地理位置定位的作用
+2. HTML5 地理位置定位
+Geolocation 对象
+	coords.latitude 十进制数的纬度
+	coords.longitude 十进制数的经度
+	coords.accuracy 位置精度
+	coords.altitude 海拔，海平面以上以米计
+	coords.altitudeA++ccuracy 位置的海拔精度
+	coords.heading 方向，从正北开始以度计
+	coords.speed 速度，以米/每秒计
+	timestamp 响应的日期/时间
+Geolocation API
+能够获取到的数据信息 
+getCurrentPosition() //获取当前地理位置
+watchPosition() //持续监视当前地理位置
+clearWatch() //清除监视
+
+getCurrentPposition(onSuccess获取数据成功后执行的回调函数,
+					noError可选，获取数据失败时执行的回调函数,
+					options可选参数列表)
+
+第6章 – 离线Web应用
+1. HTML5离线应用的特点和应用
+	离线浏览、加快速度、减少服务器负载
+2. 创建离线应用程序
+Manifest文件
+	文件扩展名建议使用.appcache
+	需要在web服务器上配置正确的MIME类型为text/cache-manifest
+在html标记中指定使用缓存文件
+	<html manifest="manifest.appcache"></html>
+manifest 文件可分为三个部分
+	CACHE MANIFEST
+	在此标题下列出的文件将在首次下载后进行缓存，写在第一行，必须有该部分
+	NETWORK
+	在此标题下列出的文件需要与服务器的连接，且不会被缓存
+	FALLBACK
+	提供了获取不到缓存资源时的备选资源路径
+3. 离线应用的更新
+	构建离线应用后，即使在线状态，用户也会访问缓存文件
+	用户清空浏览器缓存
+	manifest文件被修改
+	由程序来更新应用缓存
+<!--注释指明版本：#version 1.0-->
+
+第7章 – Web存储
+1. HTML5 Web存储的优点
+	存储空间更大，浏览器至少提供5M的空间
+	数据仅仅存储在本地，不会自动向服务器发送
+	提供丰富的接口，方便的操作数据
+	独立的存储空间，每个域都有各自存储空间，不会造成混乱
+2. Web存储提供两种存储机制
+	LocalStorage、Session Storage
+	sessionStorage为临时保存，而localStorage为永久保存。
+3. LocalStorage使用方法
+	数据项的存储、读取、删除等方法
+	检测浏览器是否支持
+	• if(!window.localStorage ) { ... }
+	存储数据项
+	• localStorage.setItem(key, value)
+	• localStorage[‘key’] = value
+	读取数据项
+	• localStorage.getItem(key)
+	• localStorage[‘key’]
+	删除数据项
+	• localStorage.removeItem(key)
+	清除全部数据
+	• localStorage.clear( )
+	获得键名
+	• localStorage.key(index)
+	获得数据项的个数
+	• localStorage.length
+4. SessionStorage使用方法
+	数据的存储、读取、删除等方法
+	
+5. Web留言本的例子
+	7-4
+
+第8章 – 文件操作
+1. FileList对象与file对象
+	•file对象指用户选择的文件；FileList对象表示用户选择的文件列表
+	<input type="file" id="file" multiple size="80"/>
+	通过给该标记添加multiple来设定当前文件选择器可选中多个文件
+2. Blob对象（二进制大对象，表示二进制原始数据）
+	• slice( ) 可以访问到字节内部的原始数据块。
+	• size属性 表示一个Blob对象的字节长度
+	•type属性 表示Blob的MIME类型，如果是未知类型，则返回一个空字符串。
+3. FileReader对象
+	用来把文件读入内存，并且读取文件中的数据
+	if ( window.FileReader )检验浏览器对filereader对象的支持
+	{
+	alert( " 您的浏览器未实现 FileReader 接口 " );
+	}
+	else
+	{
+	var reader = new FileReader(); // 正常使用浏览器
+	}
+4. 实现图片预览的例子
+8-4
+
+第9章 – 拖放
+1. DataTransfer对象
+
+2. 实现拖放的步骤
+	实现拖放操作，至少要经过两个步骤：
+	• （1）将需要拖放的对象元素的draggable属性设为true ，即
+	draggable="true"
+	注： img元素与a元素（必须指定href），默认允许拖放。
+	• （2）编写与拖放有关的事件处理代码。
+
+3. 简单拖放的例子
+9-1
+
+第10章 ~ 第12章 画布
+1. 创建Canvas元素
+	<canvas id="canvas1" width="200" height="100">
+	您的浏览器不支持canvas元素，请更换或更新浏览器
+	</canvas>
+2. Canvas绘制直线、多边形、填充、曲线、矩形、文字、图像的方法
+	moveTO(x,y)方法把路径移动到画布中的指定点，不创建线条
+	lineTO(x,y)添加一个新点，然后再画布中创建从该店到最后指定点的线条
+	stroke( )方法实际地绘制出通过 moveTo() 和 lineTo() 方法定义的路径。默认颜色是黑色
+	fill( )方法填充当前绘图（路径）。默认颜色是黑色
+	arc() 方法创建弧/曲线（用于创建圆或部分圆）context.arc(x, y, r, sAngle, eAngle, clockwise)
+	绘制矩形方法：
+	• — rect(x,y,width,height); 规划出矩形路径
+	• — fillRect(x,y,width,height)； 绘制填充矩形（实心）
+	• — strokeRect(x,y,width,height); 绘制矩形的边框（空心）
+	• — clearRect(x,y,width,height); 清除指定的区域的像素
+	globalAlpha属性——设置绘图的当前透明度
+	• 平移 ——translate(x, y)
+	• 旋转 ——rotate(deg)
+	• 缩放 ——scale(sx, sy)
+	• scale(swidth,sheight) 缩放当前绘图至更大或更小save( ) 保存当前canvas绘图环境的所有属性、坐标变换
+	等信息形成一份拷贝。
+	• restore( ) 将绘图环境状态恢复为保存值
+	• fillText( text, x, y[, maxWidth] ) 方法—在画布上绘制填色的文本。文本的默认颜色是黑色。
+	绘制轮廓文字• strokeText( text, x, y[, maxWidth] ) 方法，在画布上绘制文本（无填充色）。
+	测量文字宽度• measureText(text) 方法，—返回一个对象，该对象包含测量当前所绘制文字中指定
+文字的宽度
+	绘图：• drawImage( )方法在画布上绘制图像或视频。
+	语法1：在画布上定位图像
+	语法2：在画布上定位图像，并规定图像的宽度和高度（缩放）
+	context.drawImage(img, x, y)
+	context.drawImage(img, dx, dy, dwidth, dheight)
+	剪切图像，并在画布上定位被剪切的部分。（剪切、缩放）
+	context.drawImage(img, sx, sy, sw, sh, dx, dy, dwidth, dheight)
+	
+	
+	
+	
+02 CSS3理论知识回顾
+
+
+第13章 – CSS3概述及选择器
+1. 属性选择器
+	E[att^="val"]选择具有att属性且属性值是以val开头的字符串的元素
+	E[att$="val"]选择具有att属性且属性值是以val结尾的字符串的元素。
+	E[att*="val"]选择具有att属性且属性值是包含val的字符串的元素
+2. 伪元素选择器   选择器 : 伪元素 { 属性：值 }
+	E:first-line 设置对象内的第一行的样式。
+	E:first-letter 设置对象内的第一个字符的样式。
+	E:before 设置在对象前（依据对象树的逻辑结构）发生的内容。用来和content属性一起使用，并且必须定义content属性。
+	E:after 设置在对象后发生的内容。用来和content属性一起使用，并且必须定义content属性。
+	E:root 匹配E元素在文档的根元素。在HTML中，根元素永远是HTML。
+	E:not(s) 匹配不含有s选择符的元素E。
+	E:empty 匹配没有任何子元素（包括text节点）的元素E。
+	E:target 匹配锚点链接中当前活动的目标元素。
+	E:first-child 匹配父元素的第一个子元素E。
+	E:last-child 匹配父元素的最后一个子元素E
+	E:nth-child(n) 匹配父元素的第n个子元素E，假设该子元素不是E，则选择符无效。该选择符允许使用一个乘法因子(n)来作为换算方式，比如	想选中所有的偶数子元素E，选择符写成：E:nth-child(2n)；
+				该选择符允许使用一些关键字，比如：odd, even。
+	E:nth-last-child(n) 匹配父元素的倒数第n个子元素E，假设该子元素不是E，则	选择符无效。
+	
+第14章 – 文本、字体与颜色
+1. 文本样式
+文本阴影、文本自动换行
+	给文本添加阴影——text-shadow 属性；text-shadow: h-shadow v-shadow blur color; 
+	h-shadow 必需。水平阴影的位置。允许负值。
+	v-shadow 必需。垂直阴影的位置。允许负值。
+	blur 可选。模糊的距离。
+	color 可选。阴影的颜色。
+	可以使用text-shadow 属性来给文字指定多个阴影，并且针对每个阴影使用不同颜色，多个阴影使用逗号分隔。
+	
+	让文本自动换行——word-wrap 属性
+	word-wrap: normal | break-word; 
+		normal 只在允许的断字点执行（浏览器保持默认处理）
+		break-word 在长单词或URL地址内部进行执行
+	word-break: normal | break-all | keep-all; 
+		normal 使用浏览器磨人的执行规则
+		break-all 允许在单调内换行
+		keep-all 只能在半角空格或字符处换行
+		
+2. 颜色样式
+	rgba(red, green, blue, <opacity>)
+	hsl (hue, saturation, lightness)
+	hsla(hue, saturation, lightness, opacity)
+	opacity参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字。
+
+
+第15章 – 背景与边框
+1. 背景样式
+背景图片的尺寸、背景图片的定位区域、多个背景图像、背景图像的绘制区域
+	background-size: length| percentage| cover| contain;(背景图片的尺寸)
+		length 以浮点数字和单位组成的长度值来设置背景图像的宽度和高度。如果只设置一个值，则第二个值会被设置为 "auto"。
+		percentage 以父元素的百分比来设置背景图像的宽度和高度。如果只设置一个值，则第二个值会被设置为 "auto"。
+		cover	保持背景图像本身宽高比例，将图片缩放到正好完全覆盖所定义	背景的区域。
+		contain 保持背景图像本身宽高比例，将图片缩放到宽度或高度正好适应	所定义背景的区域。。
+	background-origin: border-box | padding-box | content-box; (背景图片的定位区域)
+		padding-box 从补白区域开始显示背景。
+		border-box 从边框区域开始显示背景。
+		content-box 仅在内容区域显示背景。
+	background-clip: border-box| padding-box| content-box; 
+		border-box 从边框区域向外裁剪背景。
+		padding-box 从补白区域向外裁剪背景。
+		content-box 从内容区域向外裁剪背景。
+	
+2. 边框样式
+圆角边框、图像边框
+	圆角边框border-radius: 1-4 length | %;
+	图像边框border-image: url(图像文件的路径) A B C D
+		border-image-source 定义用在边框的图片的路径。
+		border-image-slice 定义如何裁切背景图像。
+		border-image-width 图片边框的宽度。
+		border-image-outset 边框图像区域超出边框的量。
+		border-image-repeat 图像边框是否应平铺(repeated)、铺满
+		(rounded)或拉伸(stretched)。
+
+3. 元素阴影
+box-shadow: h-shadow v-shadow blur spread color inset;
+	h-shadow 必需。水平阴影的位置。允许负值。
+	v-shadow 必需。垂直阴影的位置。允许负值。
+	blur 可选。模糊距离。
+	spread 可选。阴影的尺寸。
+	color 可选。阴影的颜色。请参阅 CSS 颜色值。
+	inset 可选。将外部阴影 (outset) 改为内部阴影
+
+第16章 – 变形处理
+1. transform属性
+transform: none | transform-functions; 
+文本阴影、文本自动换行
+
+2. 移动—translate()，实例
+16-2
+3. 旋转—rotate()，实例
+16-3
+4. 缩放—scale()，实例
+16-4
+5. 倾斜—skew()，实例
+16-5
+6. 3D旋转变形实例
+16-6
+7. 多重变形
+16-10
+
+第17章 – CSS3动画
+1. 过渡transition，实例
+将元素的某个属性从一个属性值在指定的时间内平滑过渡到另一个属性值来实现动画功能
+	transition: property duration timing-function delay;
+	transition-property 规定设置过渡效果的 CSS 属性的名称。
+		transition-property：all | none | <property>[ ,<property> ]*
+		•all：默认值，表示所有可以进行过渡的CSS属性；
+		• none：表示不指定过渡的CSS属性；
+		• <property>：表示指定要进行过渡的CSS属性。可以同时指定多个		属性值，以逗号“,”进行分隔。		t
+	transition-duration 规定完成过渡效果需要的时间。默认是 0。
+	transition-timing-function 规定过渡效果的时间曲线。默认是"ease"。
+	transition-delay 定义过渡效果何时开始。默认是 0。
+	transition-timing-function属性用来定义过渡动画的类型
+		linear 线性效果 规定以相同速度开始至结束的过渡效果（等于cubic-bezier(0,0,1,1)）
+		ease 缓解效果 慢速开始，然后变快，最后慢速结束的过渡效果cubic-bezier(0.25,0.1,0.25,1)）
+		ease-in 渐显效果 以慢速开始的过渡效果（等于 cubicbezier(0.42,0,1,1)）
+		ease-out 渐隐效果 以慢速结束的过渡效果（等于 cubicbezier(0,0,0.58,1)）
+		ease-in-out 渐显渐隐 以慢速开始和结束的过渡效果（等于 cubicbezier(0.42,0,0.58,1)）
+		cubicbezier(n,n,n,n)贝塞尔曲线效果	 在 cubic-bezier 函数中定义自己的值。可能的值
+		是 0 至 1 之间的数值
+17-3
+2. 动画animation
+	animation-name 规定需要绑定到选择器的 keyframe 名称。
+	animation-duration 规定完成动画所花费的时间，以秒或毫秒计。
+	animation-timing-function 规定动画的速度曲线。
+	animation-delay 规定在动画开始之前的延迟。
+	animation-iteration-count 规定动画应该播放的次数。
+	animation-direction 规定是否应该轮流反向播放动画
+3. @keyframes 规则，创建关键帧集合实例
+@keyframes 关键帧集合名 { 创建关键帧的代码 }
+
+	@keyframes mycolor{
+	0%{1.开始帧
+	background-color: red;2.背景色为红色的关键帧
+	}
+	40%{在整个动画过程中40%处有一帧
+	background-color: darkblue;为背景色是深蓝色的关键帧。
+	}
+	70%{在整个动画过程中70%处有一帧
+	background-color: yellow;3.背景色为黄色的关键帧
+	}
+	100%{4.结束帧
+	background-color: red;为背景色是红色的关键帧
+	}
+	}整个动画中最后一帧，在结束帧	之后，元素的属性不再发生变化。
+	div:hover{
+	animation-name: mycolor;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	}
+17-5
+
+第18章 – CSS3多列布局
+1. CSS3设置多列布局的相关属性
+	columns  设置或检索对象的列数和每列的宽度。复合属性
+	column-width 设置或检索对象每列的宽度
+	column-count: <integer> | auto; 设置或检索对象的列数
+	column-gap: normal | <length>; 设置或检索对象的列与列之间的间隙
+	column-rule: <length>| <style>| <color>| <transparent>;  设置或检索对象的列与列之间的边框。复合属性
+	column-rule-width：<length> | thin | medium | thick  设置或检索对象的列与列之间的边框厚度。
+		<length>：用长度值来定义边框的厚度。不允许负值
+		thin：定义比默认厚度细的边框。
+		medium：定义默认厚度的边框。
+		thick：定义比默认厚度粗的边框。
+	column-rule-stylee：none(没有规则) | hidden (隐藏规则)|
+						dotted(点状) | dashed (虚线)|solid (实线)| 
+						double (双线)| groove(3D,取决于宽度和颜色值) |
+						ridge(同上) | inset(同上)| outset(同上)
+  						设置或检索对象的列与列之间的边框样式
+	column-rule-color  设置或检索对象的列与列之间的边框颜色。
+	column-spann：none | all  设置或检索对象元素是否横跨所有列。
+	column-fill  设置或检索对象所有列的高度是否统一。
+	column-break-before  设置或检索对象之前是否断行。
+	column-break-after  设置或检索对象之前是否断行。
+	column-break-inside  设置或检索对象内部是否断行。
+2. 创建多列布局，实例
+	18-4	
+
+
+第19章 – CSS3盒布局
+1. 弹性盒布局
+19-7
+2. 弹性盒模型
+19-8
+
+
+第20章 – CSS3媒体查询
+1. 理解自适应网页、响应式布局
+2. CSS3使用媒体查询实现响应式布局的步骤
+3. 响应式布局实例
+03 Bootstrap理论知识回顾
+
+
+第23章 – 栅格系统
+1. 理解栅格系统的设计原理
+	在网页设计中，把宽度为“W”的页面分割成n个网格单元“a”，每个单元
+	与单元之间的间隙设为“i”，把“a+i”定义“A”。
+2. 栅格系统的标准用法
+	<div class="row">
+	<div class="col-md-4">...</div>
+	<div class="col-md-8">...</div>
+	</div>
+3. 使用Bootstrap栅格系统进行网页布局的实例
+23-6
+
+第24章 ~第26章 全局CSS
+1. 文字排版
+	在标题内可以包含<small>标签或.small元素，用来标记副标题
+	内联文本元素
+		1.标记文本<mark></mark>
+		2、被删除的文本 <del>…</del>
+		3、无用的文本 <s>…</s>
+		4、额外插入的文本 <ins>…</ins>
+		5、带下划线的文本 <u>…</u>
+		6、小号文本 <small>…</small>
+		class = “text-left” 文本左对齐
+		class = “text-right” 文本右对齐
+		class = “text-center” 文本中对齐
+		class = “text-justify ” 文本两端对齐
+		class = “text-nowrap” 禁止文本换行
+		class =“text-lowercase” 转成小写
+		class = “text-uppercase” 转成大写
+		class = “text-capitalize” 首字母大写
+		缩略语：<abbr>
+		.text-muted：提示，使用浅灰色（#999）
+		.text-primary：主要，使用蓝色（#428bca）
+		.text-success：成功，使用浅绿色(#3c763d)
+		.text-info：通知信息，使用浅蓝色（#31708f）
+		.text-warning：警告，使用黄色（#8a6d3b）
+		.text-danger：危险，使用褐色（#a94442）
+		<p class="bg-primary">...</p>
+		<p class="bg-success">...</p>
+		<p class="bg-info">...</p>
+		<p class="bg-warning">...</p>
+		<p class="bg-danger">...</p>
+		如果不想显示列表项符号，使用 class .list-unstyled 来移除样式。
+		<ul class = " list-unstyled " >……</ul>
+2. 表格
+	<table> 为表格添加基础样式。
+	<thead> 表格标题行的容器元素（<tr>），用来标识表格列。
+	<tbody> 表格主体中的表格行的容器元素（<tr>）。
+	<tr> 一组出现在单行上的表格单元格的容器元素（<td> 或 <th>）。
+	<td> 默认的表格单元格。
+	<th> 特殊的表格单元格。必须在 <thead> 内使用。
+	<caption> 关于表格存储内容的描述或总结。
+	table-striped可以给表格内的每一行增加斑马条纹样式。(表格隔行变色)
+	.table- bordered可以给表格和其中的每个单元格增加边框。
+	.table-hover可以让表格中的每一行响应鼠标悬停状态，当指针悬停在行上时会出现浅灰色背景
+	.table-condensed可以让表格更加紧凑，单元格中的内部（padding）均会减半。
+		通过状态类可以为行或单元格设置颜色。
+		.active 鼠标悬停在行或单元格上时所设置的颜色
+		.success 标识成功或积极的动作
+		.info 标识普通的提示信息或动作
+		.warning 标识警告或需要用户注意
+		.danger 标识危险或潜在的带来负面影响的动作
+	将任何.table包裹在.table-responsive中即可创建响应式表格
+
+3. 表单
+为<form>元素添加.form-inline可使其内容左对齐并且表现为内联的控件。
+
+4. 按钮
+第27章 ~第29章 组件
+1. 下拉菜单，实例
+2. 导航条，实例
+3. 分页
+4. 列表组
+第30章 插件
+1. 站点引用 Bootstrap 插件的方式的两种方法
+2. 模态框
+3. 下拉菜单，实例
+4. 轮播，实例
+THANKYOU
